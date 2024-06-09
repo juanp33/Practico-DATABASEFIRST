@@ -1,0 +1,77 @@
+﻿@model IEnumerable<WebApplication1.Models.Personaje>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PerNombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PerApellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PerDescripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PerFechaNacimiento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PerLugarNacimiento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PerStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PerLib)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PerRol)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PerNombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PerApellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PerDescripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PerFechaNacimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PerLugarNacimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PerStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PerLib.LibId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PerRol.RolId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PerId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PerId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PerId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
